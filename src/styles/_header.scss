@@ -1,0 +1,11 @@
+.header {
+  &__navigation {
+    .nav-link {
+      color: $gray-500;
+    }
+    .active {
+      border-bottom: 2px solid $dark;
+      color: $dark;
+    }
+  }
+}

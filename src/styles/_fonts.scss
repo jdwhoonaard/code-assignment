@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'Infowijs-Title';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Averta'), url('./../fonts/a.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Infowijs-Title';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Averta SemiBold'), url('./../fonts/a-semibold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Infowijs-Title';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Averta Bold'), url('./../fonts/a-bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Infowijs-Title';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Averta ExtraBold'), url('./../fonts/a-extra-bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Infowijs-Body';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Avenir LT 35 Light'), url('./../fonts/av-light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Infowijs-Body';
+  font-style: normal;
+  font-weight: 400;
+  src: local('AvenirLTStd-Roman'), url('./../fonts/av-roman.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Infowijs-Body';
+  font-style: normal;
+  font-weight: 900;
+  src: local('AvenirLTStd-Black'), url('./../fonts/av-black.otf') format('opentype');
+}

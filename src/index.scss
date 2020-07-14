@@ -1,0 +1,12 @@
+@import "./styles/bootstrap-variables";
+@import "~bootstrap/scss/bootstrap";
+
+@import "./styles/variables";
+@import "./styles/fonts";
+@import "./styles/base";
+@import "./styles/page";
+@import "./styles/header";
+
+.logo-primary {
+  fill: $primary;
+}
