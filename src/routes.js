@@ -17,7 +17,6 @@ export default function routes() {
         <PrivateRoute path="/dashboard" component={Dashboard} />
         <Route path="/sessions" component={Sessions} />
         <Route path="/sign-in" component={SignInScreen} />
-        <Route path="/d" component={Dashboard} />
         <Redirect to="/dashboard" />
       </Switch>
     </BrowserRouter>
