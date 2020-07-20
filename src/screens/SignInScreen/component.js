@@ -15,7 +15,7 @@ import {
   Row,
   Spinner,
 } from 'reactstrap'
-import infowijsLogo from '../../images/infowijs-primary.svg' // TODO: rename to png
+import infowijsLogo from '../../images/infowijs-primary.png'
 
 function SignInScreen({
   signIn, isAuthenticationFailed,
@@ -40,8 +40,7 @@ function SignInScreen({
                 setSubmitting(true)
               }}
             >
-
-              {isAuthenticationFailed && <Alert color="warning">Sign in failed</Alert>}
+              {isAuthenticationFailed && <Alert color="danger">Sign in failed</Alert>}
               <FormGroup>
                 <Label for="password">Fill in your Password to access</Label>
                 <Input

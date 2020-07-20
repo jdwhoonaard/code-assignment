@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
     case actionTypes.AUTHENTICATION.FAILURE:
       return {
         ...state,
-        failure: true,
+        failure: false,
       }
     default:
       return state

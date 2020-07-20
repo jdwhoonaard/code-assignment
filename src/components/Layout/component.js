@@ -10,7 +10,7 @@ import {
 import infowijsLogo from '../../images/infowijs-white.svg'
 import Navigation from '../Navigation'
 
-function Layout({ children, signOut }) {
+function Layout({ children }) {
   return (
     <div>
       <Container fluid className="page">
@@ -21,7 +21,7 @@ function Layout({ children, signOut }) {
             </NavbarBrand>
             <Navigation />
             <div className="page-navigation-profile my-4">
-              <Button color="link" className="text-dark" onClick={() => signOut()}>Log out</Button>
+              <Button color="link" className="text-dark">Log out</Button>
             </div>
           </Col>
           <Col className="page-wrapper">
@@ -37,7 +37,6 @@ Layout.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.node,
   ]),
-  signOut: PropTypes.func.isRequired,
 }
 
 Layout.defaultProps = {
