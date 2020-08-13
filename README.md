@@ -25,4 +25,5 @@ yarn start
 
 In het bestand `Product Backlog Items.pdf` staan de Product Backlog items voor dit project, echter hebben wij ze nog niet op prioriteit gesorteerd.
 Ons advies is om dus *maximaal* even 30 minuten te besteden om de stories op de juiste volgorde te zetten. Qua totale werkzaamheden willen we je vragen maximaal 4 uur te besteden.
+Uiteraard is een Product Backlog nooit compleet, dus mocht je vragen hebben stel ze gerust!
 
