@@ -4,6 +4,7 @@ import {
 } from 'redux-saga/effects';
 import actionTypes from '../action-types';
 import setSessions from '../actions/sessions/setSessions';
+import moment from 'moment'
 
 const data = [
   {
@@ -513,10 +514,18 @@ const data = [
 ]
 
 const onFetchSessions = function* onFetchSessions() {
-  yield takeLatest(actionTypes.SESSIONS.FETCH_SESSIONS, function* onfetchSessions({ meta: { page } }) {
+  yield takeLatest(actionTypes.SESSIONS.FETCH_SESSIONS, function* onfetchSessions({ meta: { sorting, page } }) {
     const limit = 20
     yield put(setSessions(
-      [...data].splice((page - 1) * limit, limit),
+      [...data].sort((a, b) => {
+        if (moment(a.created_at).isBefore(moment(b.created_at))) {
+          return sorting * 1
+        }
+        if (moment(a.created_at).isAfter(moment(b.created_at))) {
+          return sorting * -1
+        }
+        return 0
+      }).splice((page - 1) * limit, limit),
       {
         total: data.length,
         limit,

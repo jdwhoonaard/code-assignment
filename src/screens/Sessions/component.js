@@ -16,10 +16,13 @@ import PagePagination from '../../components/PagePagination'
 function Sessions({
   fetchSessions, sessions, sessionsMeta, sessionsErrors, isSessionsLoading, location: { search: queryString },
 }) {
+  const [sorting, setSorting] = useState(1);
+
   useEffect(() => {
     const { page } = parse(queryString, { ignoreQueryPrefix: true })
-    fetchSessions(page)
-  }, [fetchSessions, queryString])
+    fetchSessions(sorting, page)
+  }, [fetchSessions, queryString, sorting])
+
   const [search, setSearch] = useState('')
 
   return (
@@ -41,55 +44,55 @@ function Sessions({
       </Header>
       <Table responsive>
         <thead>
-        <tr>
-          <th>Crutomser</th>
-          <th>User ID</th>
-          <th>User</th>
-          <th>User Role</th>
-          <th>Created at</th>
-        </tr>
+          <tr>
+            <th>Crutomser</th>
+            <th>User ID</th>
+            <th>User</th>
+            <th>User Role</th>
+            <th><a onClick={() => setSorting(sorting * -1)}>Created at</a></th>
+          </tr>
         </thead>
         <tbody>
-        {isSessionsLoading && (
-          <tr>
-            <td colSpan="6">
-              <Spinner />
-              {' '}
+          {isSessionsLoading && (
+            <tr>
+              <td colSpan="6">
+                <Spinner />
+                {' '}
               Fetching new data...
             </td>
-          </tr>
-        )}
-        {sessionsErrors && (
-          sessionsErrors.map((error) => (
-            <tr key={error.title}>
-              <td colSpan="6" className="bg-danger text-light">
-                {error.title || 'An unknown error occurred.'}
-              </td>
             </tr>
-          ))
-        )}
-        {sessions && sessions
-        .sort((a, b) => {
-          if (moment(a.created_at).isBefore(moment(b.created_at))) {
-            return 1
-          }
-          if (moment(a.created_at).isAfter(moment(b.created_at))) {
-            return -1
-          }
+          )}
+          {sessionsErrors && (
+            sessionsErrors.map((error) => (
+              <tr key={error.title}>
+                <td colSpan="6" className="bg-danger text-light">
+                  {error.title || 'An unknown error occurred.'}
+                </td>
+              </tr>
+            ))
+          )}
+          {sessions && sessions
+            .sort((a, b) => {
+              if (moment(a.created_at).isBefore(moment(b.created_at))) {
+                return sorting * 1
+              }
+              if (moment(a.created_at).isAfter(moment(b.created_at))) {
+                return sorting * -1
+              }
 
-          return 0
-        })
-        .map((session) => {
-          return (
-            <tr key={session.id}>
-              <th className="align-middle">{session.customer.name}</th>
-              <th className="align-middle">{session.user.id}</th>
-              <td className="align-middle">{session.user.name}</td>
-              <td className="align-middle">{session.user.role}</td>
-              <td className="align-middle">{moment(session.created_at).format('D MMM Y [at] HH:mm')}</td>
-            </tr>
-          )
-        })}
+              return 0
+            })
+            .map((session) => {
+              return (
+                <tr key={session.id}>
+                  <th className="align-middle">{session.customer.name}</th>
+                  <th className="align-middle">{session.user.id}</th>
+                  <td className="align-middle">{session.user.name}</td>
+                  <td className="align-middle">{session.user.role}</td>
+                  <td className="align-middle">{moment(session.created_at).format('D MMM Y [at] HH:mm')}</td>
+                </tr>
+              )
+            })}
         </tbody>
       </Table>
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}
