@@ -44,7 +44,7 @@ function SignInScreen({
               <FormGroup>
                 <Label for="password">Fill in your Password to access</Label>
                 <Input
-                  type="text"
+                  type="password"
                   autoFocus
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
