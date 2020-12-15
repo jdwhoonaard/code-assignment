@@ -9,6 +9,7 @@ import {
 } from 'reactstrap'
 import infowijsLogo from '../../images/infowijs-white.svg'
 import Navigation from '../Navigation'
+import { MdExitToApp } from 'react-icons/md'
 
 function Layout({ children }) {
   return (
@@ -21,7 +22,7 @@ function Layout({ children }) {
             </NavbarBrand>
             <Navigation />
             <div className="page-navigation-profile my-4">
-              <Button color="link" className="text-dark">Log out</Button>
+              <Button color="link" className="btn btn-secondary text-light"><MdExitToApp className="mr-2" />Log out</Button>
             </div>
           </Col>
           <Col className="page-wrapper">
