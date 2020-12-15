@@ -15,7 +15,7 @@ import {
   Row,
   Spinner,
 } from 'reactstrap'
-import infowijsLogo from '../../images/infowijs-primary.png'
+import infowijsLogo from '../../images/infowijs-primary.svg'
 
 function SignInScreen({
   signIn, isAuthenticationFailed,
