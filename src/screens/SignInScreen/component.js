@@ -25,7 +25,7 @@ function SignInScreen({
 
   useEffect(() => {
     setSubmitting(false)
-  }, [])
+  }, [isAuthenticationFailed])
 
   return (
     <Container fluid>
