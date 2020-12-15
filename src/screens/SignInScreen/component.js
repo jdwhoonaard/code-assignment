@@ -40,7 +40,7 @@ function SignInScreen({
                 setSubmitting(true)
               }}
             >
-              {isAuthenticationFailed && <Alert color="danger">Sign in failed</Alert>}
+              {isAuthenticationFailed && <Alert color="warning">Sign in failed</Alert>}
               <FormGroup>
                 <Label for="password">Fill in your Password to access</Label>
                 <Input
