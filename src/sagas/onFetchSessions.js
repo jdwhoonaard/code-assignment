@@ -514,7 +514,7 @@ const data = [
 
 const onFetchSessions = function* onFetchSessions() {
   yield takeLatest(actionTypes.SESSIONS.FETCH_SESSIONS, function* onfetchSessions({ meta: { page } }) {
-    const limit = 5
+    const limit = 20
     yield put(setSessions(
       [...data].splice((page - 1) * limit, limit),
       {
