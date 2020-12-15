@@ -16,12 +16,14 @@ import PagePagination from '../../components/PagePagination'
 function Sessions({
   fetchSessions, sessions, sessionsMeta, sessionsErrors, isSessionsLoading, location: { search: queryString },
 }) {
+  const [sorting, setSorting] = useState(1);
+
   useEffect(() => {
     const { page } = parse(queryString, { ignoreQueryPrefix: true })
-    fetchSessions(page)
-  }, [fetchSessions, queryString])
+    fetchSessions(sorting, page)
+  }, [fetchSessions, queryString, sorting])
+
   const [search, setSearch] = useState('')
-  const [sorting, setSorting] = useState(1)
 
   return (
     <Layout>
